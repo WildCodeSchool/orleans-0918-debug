@@ -7,7 +7,7 @@
  * PHP version 7
  */
 
-namespace Model;
+namespace App;
 
 /**
  * Class Item

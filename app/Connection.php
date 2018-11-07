@@ -1,28 +1,28 @@
 <?php
- /**
-  * Database connection
-  *
-  *
-  *
-  * @author adapted from Benjamin Besse
-  *
-  * @link   http://fr3.php.net/manual/fr/book.pdo.php classe PDO
-  */
+/**
+ * Database connection
+ *
+ *
+ *
+ * @author adapted from Benjamin Besse
+ *
+ * @link   http://fr3.php.net/manual/fr/book.pdo.php classe PDO
+ */
 
- namespace App;
+namespace App;
 
- use \PDO;
+use PDO;
 
 /**
-*
-* This class only make a PDO object instanciation. Use it as below :
-*
-* <pre>
-*  $db = new Connection();
-*  $conn = $db->getPdoConnection();
-* </pre>
+ *
+ * This class only make a PDO object instanciation. Use it as below :
+ *
+ * <pre>
+ *  $db = new Connection();
+ *  $conn = $db->getPdoConnection();
+ * </pre>
  */
-class Connection
+class Connexion
 {
     /**
      * @var PDO
@@ -40,7 +40,7 @@ class Connection
     {
         try {
             $this->pdoConnection = new PDO(
-                'mysql:host='.APP_DB_HOST.'; dbname='.APP_DB_NAME.'; charset=utf8',
+                'mysql:host=' . APP_DB_HOST . '; dbname=' . APP_DB_NAME . '; charset=utf8',
                 APP_DB_USER,
                 APP_DB_PWD
             );
@@ -52,7 +52,7 @@ class Connection
                 $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             }
         } catch (\PDOException $e) {
-            die('<div class="error">Error !: '.$e->getMessage().'</div>');
+            die('<div class="error">Error !: ' . $e->getMessage() . '</div>');
         }
     }
 
@@ -60,8 +60,8 @@ class Connection
     /**
      * @return $pdo
      */
-    public function getPdoConnection() :PDO
+    public function getPdoConnection(): PDO
     {
-       return $this->pdoConnection;
+        return $this->pdoConnection;
     }
 }

@@ -16,7 +16,7 @@ use Model\ItemManager;
  * Class ItemController
  *
  */
-class ItemController extends AbstractController
+class ItemController extend AbstractController
 {
 
 
@@ -28,12 +28,12 @@ class ItemController extends AbstractController
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function index()
+    public function index() :sting
     {
         $itemManager = new ItemManager($this->getPdo());
-        $items = $itemManager->selectAll();
+        $items = $itemManager->selectALL();
 
-        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
+        return $this->twig->render('Item/index.htm1.twig', ['item' => $items]);
     }
 
 
@@ -89,7 +89,7 @@ class ItemController extends AbstractController
     public function add()
     {
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if ($_SERVER['REQUEST_METHOD'] = 'POST') {
             $itemManager = new ItemManager($this->getPdo());
             $item = new Item();
             $item->setTitle($_POST['title']);
@@ -97,7 +97,7 @@ class ItemController extends AbstractController
             header('Location:/item/' . $id);
         }
 
-        return $this->twig->render('Item/add.html.twig');
+        $this->twig->render('item/add.html.twig');
     }
 
 
@@ -112,4 +112,4 @@ class ItemController extends AbstractController
         $itemManager->delete($id);
         header('Location:/');
     }
-}
+

@@ -24,7 +24,7 @@ class ItemManager extends AbstractManager
      */
     public function __construct(\PDO $pdo)
     {
-        parent::__construct(self::TABLE, $pdo);
+        parent::__construct($pdo);
     }
 
 
@@ -35,7 +35,7 @@ class ItemManager extends AbstractManager
     public function insert(Item $item): int
     {
         // prepared request
-        $statement = $this->pdo->prepare("INSERT INTO $this->table (`title`) VALUES (:title)");
+        $statement = $pdo->prepare("INSERT $this->table (`title`) VALUES (:title)");
         $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
 
 
