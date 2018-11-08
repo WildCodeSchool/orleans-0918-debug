@@ -11,7 +11,6 @@
 
 namespace App;
 
-use PDO;
 
 /**
  *
@@ -22,10 +21,10 @@ use PDO;
  *  $conn = $db->getPdoConnection();
  * </pre>
  */
-class Connexion
+class Connection
 {
     /**
-     * @var PDO
+     * @var \PDO
      *
      * @access private
      */
@@ -39,17 +38,17 @@ class Connexion
     public function __construct()
     {
         try {
-            $this->pdoConnection = new PDO(
+            $this->pdoConnection = new \PDO(
                 'mysql:host=' . APP_DB_HOST . '; dbname=' . APP_DB_NAME . '; charset=utf8',
                 APP_DB_USER,
                 APP_DB_PWD
             );
 
-            $this->pdoConnection->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_CLASS);
+            $this->pdoConnection->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_CLASS);
 
             // show errors in DEV environment
-            if (APP_DEV) {
-                $this->pdoConnection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            if (APPDEV) {
+                $this->pdoConnection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
         } catch (\PDOException $e) {
             die('<div class="error">Error !: ' . $e->getMessage() . '</div>');
@@ -60,7 +59,7 @@ class Connexion
     /**
      * @return $pdo
      */
-    public function getPdoConnection(): PDO
+    public function getPdoConnection(): \PDO
     {
         return $this->pdoConnection;
     }

@@ -1,4 +1,4 @@
-<php?
+<?php
 
 /**
  * This file define app constants .
@@ -15,9 +15,9 @@ define('APPDEV', true);
 
 //Model (for connexion data, see unversionned db.php)
 //VIew
-define('APP_VIEW_PATH', __DIR__ . '/../src/View/');
+define('APP_VIEW_PATH', '/home/nico/PhpstormProjects/201809/dojos/orleans-0918-debug/src/View/');
 define('APP_CACHE_PATH', __DIR__ . '/../temp/cache/');
 
-//Controler
+//Controller
 define('APP_CONTROLLER_NAMESPACE', '\Controller\\');
 define('APP_CONTROLLER_SUFFIX', 'Controller');

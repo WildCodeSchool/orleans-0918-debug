@@ -32,14 +32,14 @@ abstract class AbstractController
     /**
      *  Initializes this class.
      */
-    public function _construct()
+    public function __construct()
     {
         $loader = new Twig_Loader_Filesystem(APP_VIEW_PATH);
         $this->twig = new Twig_Environment(
             $loader,
             [
-                'cache' => !APP_DEV,
-                'debug' => APP_DEV,
+                'cache' => !APPDEV,
+                'debug' => APPDEV,
             ]
         );
         $this->twig->addExtension(new \Twig_Extension_Debug());
