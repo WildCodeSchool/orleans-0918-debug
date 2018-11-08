@@ -1,4 +1,4 @@
-<php?
+<?php
 
 /**
  * This file define app constants .

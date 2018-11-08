@@ -22,7 +22,7 @@ use PDO;
  *  $conn = $db->getPdoConnection();
  * </pre>
  */
-class Connexion
+class Connection
 {
     /**
      * @var PDO

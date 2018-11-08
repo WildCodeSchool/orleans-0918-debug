@@ -16,7 +16,7 @@ use Model\ItemManager;
  * Class ItemController
  *
  */
-class ItemController extend AbstractController
+class ItemController extends AbstractController
 {
 
 
@@ -28,12 +28,12 @@ class ItemController extend AbstractController
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function index() :sting
+    public function index(): string
     {
         $itemManager = new ItemManager($this->getPdo());
         $items = $itemManager->selectALL();
 
-        return $this->twig->render('Item/index.htm1.twig', ['item' => $items]);
+        return $this->twig->render('Item/index.html.twig', ['items' => $items]);
     }
 
 
@@ -113,3 +113,4 @@ class ItemController extend AbstractController
         header('Location:/');
     }
 
+}
